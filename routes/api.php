@@ -17,3 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group([
+    'prefix' => 'admin'
+], function () {
+    Route::resource('service', \App\Http\Controllers\Admin\ServiceController::class);
+    Route::resource('disease', \App\Http\Controllers\Admin\DiseaseController::class);
+});
+
+Route::group([
+
+], function () {
+    Route::group([
+        'prefix' => 'service'
+    ], function () {
+        Route::get('/', [\App\Http\Controllers\ServiceController::class, 'index']);
+    });
+});
