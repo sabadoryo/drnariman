@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Disease;
+namespace App\Http\Requests\Admin\Media;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateDiseaseRequest extends FormRequest
+class UploadMediaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class UpdateDiseaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'description' => 'required',
-            'service_id' => 'required|integer|exists:services,id'
+            'file' => 'required|image',
+            'destiny' => 'required|string'
         ];
     }
 }

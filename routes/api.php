@@ -23,7 +23,15 @@ Route::group([
     'prefix' => 'admin'
 ], function () {
     Route::resource('service', \App\Http\Controllers\Admin\ServiceController::class);
-    Route::resource('disease', \App\Http\Controllers\Admin\DiseaseController::class);
+
+    Route::group([
+        'prefix' => 'disease'
+    ], function () {
+        Route::post('', [\App\Http\Controllers\Admin\DiseaseController::class, 'store']);
+        Route::put('{disease}', [\App\Http\Controllers\Admin\DiseaseController::class, 'update']);
+        Route::delete('{disease}', [\App\Http\Controllers\Admin\DiseaseController::class, 'destroy']);
+        Route::post('{disease}/upload-media', [\App\Http\Controllers\Admin\DiseaseController::class, 'uploadMedia']);
+    });
 });
 
 Route::group([
@@ -33,5 +41,11 @@ Route::group([
         'prefix' => 'service'
     ], function () {
         Route::get('/', [\App\Http\Controllers\ServiceController::class, 'index']);
+    });
+
+    Route::group([
+        'prefix' => 'disease'
+    ], function () {
+        Route::get('/', [\App\Http\Controllers\DiseaseController::class, 'index']);
     });
 });
