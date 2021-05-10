@@ -35,7 +35,7 @@ class Media extends Model
             ->where('destiny', $destiny)
             ->first();
 
-        $newPath = Storage::disk('public')->put('', $newFile);
+        $newPath = Storage::disk('public')->put('/media/', $newFile);
 
         if ($file) {
             if (Storage::disk('public')->exists($file->path)) {

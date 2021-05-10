@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\Disease;
+use App\Models\Media;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,11 +23,24 @@ class DiseasesRepository
         $this->assignMainInfo($data);
         $this->disease->save();
 
-        $iconPath = Storage::disk('public')->put('', $data['icon']);
-        $mainImagePath = Storage::disk('public')->put('', $data['main_image']);
+        Media::upload($this->disease, $data['icon'], 'icon');
+        Media::upload($this->disease, $data['main_image'], 'main_image');
 
-        $this->disease->storeMedia($iconPath, 'icon');
-        $this->disease->storeMedia($mainImagePath, 'main_image');
+        $this->disease
+            ->specialists()
+            ->attach($data['specialists']);
+
+        foreach ($data['previous_works'] as $previous_work) {
+            $previousWorkInstance = $this->disease
+                ->previousWorks()
+                ->create([
+                    'patient_name' => $previous_work['patient_name'],
+                    'description' => $previous_work['description']
+                ]);
+            Media::upload($previousWorkInstance, $previous_work['image_after'], 'image_after');
+            Media::upload($previousWorkInstance, $previous_work['image_before'], 'image_before');
+        }
+
 
         return $this->disease;
     }

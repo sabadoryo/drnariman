@@ -28,7 +28,14 @@ class StoreDiseaseRequest extends FormRequest
             'service_id' => 'required|integer|exists:services,id',
             'description' => 'required',
             'icon' => 'required|image',
-            'main_image' => 'required|image'
+            'main_image' => 'required|image',
+            'specialists' => 'required|array|min:1',
+            'specialists.*' => 'exists:specialists,id',
+            'previous_works' => 'required|array',
+            'previous_works.*.patient_name' => 'required|string',
+            'previous_works.*.description' => 'required',
+            'previous_works.*.image_before' => 'required|image',
+            'previous_works.*.image_after' => 'required|image'
         ];
     }
 }

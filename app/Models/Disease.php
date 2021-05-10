@@ -23,6 +23,16 @@ class Disease extends Model
 
     public function media()
     {
-        return $this->morphMany(Media::class,'mediable');
+        return $this->morphMany(Media::class, 'mediable');
+    }
+
+    public function specialists()
+    {
+        return $this->belongsToMany(Specialist::class);
+    }
+
+    public function previousWorks()
+    {
+        return $this->hasMany(PreviousWork::class);
     }
 }

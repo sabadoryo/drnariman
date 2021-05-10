@@ -15,7 +15,7 @@ class DiseaseController extends Controller
             ->allowedFilters(
                 AllowedFilter::exact('name')
             )
-            ->allowedIncludes('media')
+            ->allowedIncludes('media','specialists')
             ->get();
 
         return $this->cresponse('All diseases', $diseases);

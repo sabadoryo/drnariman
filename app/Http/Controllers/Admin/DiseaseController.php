@@ -28,6 +28,7 @@ class DiseaseController extends Controller
         try {
             $disease = $this->repository->store($request->all());
         } catch (\Exception $e) {
+
             return $this->cresponse('Error', $e->getMessage(), Response::HTTP_EXPECTATION_FAILED);
         }
         DB::commit();
