@@ -16,6 +16,7 @@ class DiseaseController extends Controller
                 AllowedFilter::exact('name')
             )
             ->allowedIncludes('media','specialists')
+            ->allowedAppends('icon')
             ->get();
 
         return $this->cresponse('All diseases', $diseases);

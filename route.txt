@@ -1,0 +1,24 @@
++--------+-----------+------------------------------------------+-----------------+----------------------------------------------------------+------------+
+| Domain | Method    | URI                                      | Name            | Action                                                   | Middleware |
++--------+-----------+------------------------------------------+-----------------+----------------------------------------------------------+------------+
+|        | GET|HEAD  | /                                        |                 | Closure                                                  | web        |
+|        | POST      | api/admin/disease                        |                 | App\Http\Controllers\Admin\DiseaseController@store       | api        |
+|        | DELETE    | api/admin/disease/{disease}              |                 | App\Http\Controllers\Admin\DiseaseController@destroy     | api        |
+|        | PUT       | api/admin/disease/{disease}              |                 | App\Http\Controllers\Admin\DiseaseController@update      | api        |
+|        | POST      | api/admin/disease/{disease}/upload-media |                 | App\Http\Controllers\Admin\DiseaseController@uploadMedia | api        |
+|        | POST      | api/admin/service                        | service.store   | App\Http\Controllers\Admin\ServiceController@store       | api        |
+|        | GET|HEAD  | api/admin/service                        | service.index   | App\Http\Controllers\Admin\ServiceController@index       | api        |
+|        | GET|HEAD  | api/admin/service/create                 | service.create  | App\Http\Controllers\Admin\ServiceController@create      | api        |
+|        | GET|HEAD  | api/admin/service/{service}              | service.show    | App\Http\Controllers\Admin\ServiceController@show        | api        |
+|        | PUT|PATCH | api/admin/service/{service}              | service.update  | App\Http\Controllers\Admin\ServiceController@update      | api        |
+|        | DELETE    | api/admin/service/{service}              | service.destroy | App\Http\Controllers\Admin\ServiceController@destroy     | api        |
+|        | GET|HEAD  | api/admin/service/{service}/edit         | service.edit    | App\Http\Controllers\Admin\ServiceController@edit        | api        |
+|        | GET|HEAD  | api/disease                              |                 | App\Http\Controllers\DiseaseController@index             | api        |
+|        | GET|HEAD  | api/gallery                              |                 | App\Http\Controllers\PhotoGalleryController@index        | api        |
+|        | GET|HEAD  | api/previous-work                        |                 | App\Http\Controllers\PreviousWorkController@index        | api        |
+|        | GET|HEAD  | api/service                              |                 | App\Http\Controllers\ServiceController@index             | api        |
+|        | GET|HEAD  | api/setting                              |                 | App\Http\Controllers\SettingController@index             | api        |
+|        | GET|HEAD  | api/specialist                           |                 | App\Http\Controllers\SpecialistController@index          | api        |
+|        | GET|HEAD  | api/user                                 |                 | Closure                                                  | api        |
+|        |           |                                          |                 |                                                          | auth:api   |
++--------+-----------+------------------------------------------+-----------------+----------------------------------------------------------+------------+

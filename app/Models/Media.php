@@ -24,6 +24,10 @@ class Media extends Model
         'created_at'
     ];
 
+    protected $appends = [
+        'url'
+    ];
+
     public function mediable()
     {
         return $this->morphTo();
@@ -52,5 +56,10 @@ class Media extends Model
         }
 
         return $file;
+    }
+
+    public function getUrlAttribute()
+    {
+        return Storage::disk('public')->url($this->path);
     }
 }

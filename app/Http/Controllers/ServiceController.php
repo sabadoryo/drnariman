@@ -14,8 +14,9 @@ class ServiceController extends Controller
         $services = QueryBuilder::for(Service::class)
             ->allowedFilters(
                 AllowedFilter::exact('id'),
-                AllowedFilter::exact('name')
+                AllowedFilter::exact('name'),
             )
+            ->allowedIncludes(['diseases'])
             ->get();
 
         return $this->cresponse('All services', $services);

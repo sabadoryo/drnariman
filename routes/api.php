@@ -48,4 +48,28 @@ Route::group([
     ], function () {
         Route::get('/', [\App\Http\Controllers\DiseaseController::class, 'index']);
     });
+
+    Route::group([
+        'prefix' => 'specialist',
+    ], function() {
+       Route::get('/', [\App\Http\Controllers\SpecialistController::class, 'index']);
+    });
+
+    Route::group([
+        'prefix' => 'gallery',
+    ], function() {
+       Route::get('/', [\App\Http\Controllers\PhotoGalleryController::class, 'index']);
+    });
+
+    Route::group([
+        'prefix' => 'setting',
+    ], function () {
+        Route::get('/', [\App\Http\Controllers\SettingController::class, 'index']);
+    });
+
+    Route::group([
+        'prefix' => 'previous-work',
+    ], function () {
+        Route::get('/', [\App\Http\Controllers\PreviousWorkController::class, 'index']);
+    });
 });

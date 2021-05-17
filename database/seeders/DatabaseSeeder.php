@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\PhotoGallery;
+use App\Models\PreviousWork;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,9 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       $this->call([
-          ServicesSeeder::class,
-          DiseaseSeeder::class
-       ]);
+        $this->call([
+            ServicesSeeder::class,
+            DiseaseSeeder::class,
+            SpecialistsSeeder::class,
+            SettingsSeeder::class,
+            PhotoGallerySeeder::class,
+            PreviousWorksSeeder::class,
+        ]);
     }
 }
