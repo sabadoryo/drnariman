@@ -41,7 +41,6 @@ class DiseasesRepository
             Media::upload($previousWorkInstance, $previous_work['image_before'], 'image_before');
         }
 
-
         return $this->disease;
     }
 
