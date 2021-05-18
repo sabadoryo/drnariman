@@ -16,7 +16,7 @@ class ServiceController extends Controller
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('name'),
             )
-            ->allowedIncludes(['diseases'])
+            ->allowedIncludes(['diseases.media'])
             ->get();
 
         return $this->cresponse('All services', $services);

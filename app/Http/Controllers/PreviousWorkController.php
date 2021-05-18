@@ -11,7 +11,7 @@ class PreviousWorkController extends Controller
     public function index()
     {
         $works = QueryBuilder::for(PreviousWork::class)
-            ->allowedIncludes('media','disease')
+            ->allowedIncludes('media','disease.media')
             ->get();
 
         return $this->cresponse('All previous works', $works);
