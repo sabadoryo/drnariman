@@ -22,6 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group([
     'prefix' => 'admin'
 ], function () {
+    Route::post('upload-image-for-editor', [\App\Http\Controllers\Admin\AdminController::class, 'upload']);
+
     Route::resource('service', \App\Http\Controllers\Admin\ServiceController::class);
 
     Route::group([

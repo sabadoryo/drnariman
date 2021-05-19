@@ -15,7 +15,8 @@ class DiseaseController extends Controller
             ->allowedFilters(
                 AllowedFilter::exact('name')
             )
-            ->allowedIncludes('media','specialists.media', 'previousWorks.media')
+            ->allowedSorts('id', 'name', 'description','created_at', 'updated_at')
+            ->allowedIncludes('media','specialists.media', 'previousWorks.media', 'service')
             ->allowedAppends('icon')
             ->get();
 

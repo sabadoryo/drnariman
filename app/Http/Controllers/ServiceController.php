@@ -16,6 +16,7 @@ class ServiceController extends Controller
                 AllowedFilter::exact('id'),
                 AllowedFilter::exact('name'),
             )
+            ->allowedSorts('id','name','diseasesCount','created_at', 'updated_at')
             ->allowedIncludes(['diseases.media'])
             ->get();
 

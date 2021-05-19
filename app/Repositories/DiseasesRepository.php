@@ -30,7 +30,7 @@ class DiseasesRepository
             ->specialists()
             ->attach($data['specialists']);
 
-        foreach ($data['previous_works'] as $previous_work) {
+        foreach (($data['previous_works']) as $previous_work) {
             $previousWorkInstance = $this->disease
                 ->previousWorks()
                 ->create([
