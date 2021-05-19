@@ -13,7 +13,8 @@ class DiseaseController extends Controller
     {
         $diseases = QueryBuilder::for(Disease::class)
             ->allowedFilters(
-                AllowedFilter::exact('name')
+                AllowedFilter::exact('name'),
+                AllowedFilter::exact('id')
             )
             ->allowedSorts('id', 'name', 'description','created_at', 'updated_at')
             ->allowedIncludes('media','specialists.media', 'previousWorks.media', 'service')
