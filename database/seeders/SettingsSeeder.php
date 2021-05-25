@@ -31,6 +31,14 @@ class SettingsSeeder extends Seeder
             'value' => '77016117380'
         ],
         [
+          'key' => 'number_mask1',
+          'value' => '+7 (701) 611 73 80'
+        ],
+        [
+          'key' => 'number_mask2',
+          'value' => '8 (701) 611 73 80'
+        ],
+        [
             'key' => 'logo',
             'value' => 'todo'
         ]

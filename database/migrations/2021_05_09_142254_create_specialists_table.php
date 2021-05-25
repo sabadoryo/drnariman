@@ -19,9 +19,9 @@ class CreateSpecialistsTable extends Migration
             $table->string('position')->nullable();
             $table->string('qualification_category')->nullable();
             $table->integer('working_experience_time')->nullable();
-            $table->text('working_experience_description')->nullable();
-            $table->text('education')->nullable();
-            $table->text('courses')->nullable();
+            $table->json('working_experience_description')->nullable();
+            $table->json('education')->nullable();
+            $table->json('courses')->nullable();
             $table->timestamps();
         });
     }

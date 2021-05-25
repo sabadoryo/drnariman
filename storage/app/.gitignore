@@ -1,3 +1,4 @@
-*
-!public/
+public/*
+!public/media
+!public/photo-gallery
 !.gitignore

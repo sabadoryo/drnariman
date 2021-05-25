@@ -10,4 +10,10 @@ class Specialist extends Model
 {
     use HasFactory, HasMedia;
 
+    protected $casts = [
+      'working_experience_description' => 'array',
+      'education' => 'array',
+      'courses' => 'array'
+    ];
+
 }
